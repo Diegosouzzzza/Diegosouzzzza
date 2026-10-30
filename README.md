@@ -1,9 +1,7 @@
 <div align="center">
-  <h1>Diego Souza</h1>
-  <p><strong>Desenvolvedor IoT, Sistemas Embarcados & Front-end ⚡</strong></p>
-  <p>📍 Manaus, Amazonas — Brasil</p>
+  <img src="./banner.svg" alt="Diego Souza Banner" width="100%" />
 
-  <p>
+  <p style="margin-top: 15px;">
     <a href="mailto:diegosouzzzza37@gmail.com">
       <img src="https://img.shields.io/badge/Email-diegosouzzzza37%40gmail.com-0078D4?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
     </a>
