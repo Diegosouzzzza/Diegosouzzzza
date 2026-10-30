@@ -1,114 +1,187 @@
-<svg width="1000" height="260" viewBox="0 0 1000 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="1000" height="300" viewBox="0 0 1000 300" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Background Gradient -->
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a0c10" />
-      <stop offset="50%" stop-color="#0e131f" />
-      <stop offset="100%" stop-color="#080a0f" />
+    <!-- Ultra Dark Deep Space / Obsidian Background -->
+    <linearGradient id="obsidianBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020408" />
+      <stop offset="40%" stop-color="#070c16" />
+      <stop offset="70%" stop-color="#050810" />
+      <stop offset="100%" stop-color="#010204" />
     </linearGradient>
 
-    <!-- Accent Neon Cyan Gradient -->
-    <linearGradient id="neonCyan" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#00f2fe" />
-      <stop offset="100%" stop-color="#4facfe" />
+    <!-- Radial Vignette for Depth -->
+    <radialGradient id="vignette" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="rgba(0, 245, 255, 0.06)" />
+      <stop offset="50%" stop-color="rgba(0, 0, 0, 0)" />
+      <stop offset="100%" stop-color="rgba(0, 0, 0, 0.85)" />
+    </radialGradient>
+
+    <!-- Electric Cyan Glow Gradient -->
+    <linearGradient id="electricCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f5ff" />
+      <stop offset="50%" stop-color="#00a8ff" />
+      <stop offset="100%" stop-color="#00f5ff" />
     </linearGradient>
 
-    <!-- Accent Neon Pink/Purple Gradient -->
-    <linearGradient id="neonPink" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#f857a6" />
-      <stop offset="100%" stop-color="#ff5858" />
-    </linearGradient>
-
-    <!-- Glowing Filter -->
-    <filter id="glowCyan" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="6" result="blur" />
+    <!-- Precision Glow Filter -->
+    <filter id="neonGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
       <feMerge>
         <feMergeNode in="blur" />
         <feMergeNode in="SourceGraphic" />
       </feMerge>
     </filter>
 
-    <!-- Grid Pattern -->
-    <pattern id="techGrid" width="30" height="30" patternUnits="userSpaceOnUse">
-      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255, 255, 255, 0.03)" stroke-width="1" />
+    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Technical Micro-Grid Pattern -->
+    <pattern id="darkGrid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M 25 0 L 0 0 0 25" fill="none" stroke="rgba(255, 255, 255, 0.025)" stroke-width="0.8" />
+      <circle cx="25" cy="25" r="0.75" fill="rgba(0, 245, 255, 0.15)" />
     </pattern>
   </defs>
 
   <!-- Background Base -->
-  <rect width="1000" height="260" rx="14" fill="url(#bgGrad)" />
-  <rect width="1000" height="260" rx="14" fill="url(#techGrid)" />
-  <rect width="1000" height="260" rx="14" stroke="rgba(0, 242, 254, 0.15)" stroke-width="1.5" />
+  <rect width="1000" height="300" rx="16" fill="url(#obsidianBg)" />
+  <rect width="1000" height="300" rx="16" fill="url(#darkGrid)" />
+  <rect width="1000" height="300" rx="16" fill="url(#vignette)" />
 
-  <!-- Left Circuit Elements (IoT / Hardware) -->
-  <g opacity="0.45" stroke="#00f2fe" stroke-width="1.5" fill="none">
-    <path d="M 0 60 L 90 60 L 130 100 L 220 100" />
-    <circle cx="220" cy="100" r="4" fill="#00f2fe" />
+  <!-- Outer Precision Border -->
+  <rect x="1" y="1" width="998" height="298" rx="15" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1.2" />
+  
+  <!-- Subtle Top & Bottom Glowing Laser Lines -->
+  <path d="M 250 1 L 750 1" stroke="url(#electricCyan)" stroke-width="2" opacity="0.8" filter="url(#subtleGlow)" />
+  <path d="M 350 299 L 650 299" stroke="url(#electricCyan)" stroke-width="1.5" opacity="0.6" />
 
-    <path d="M 0 160 L 70 160 L 110 120 L 170 120" />
-    <circle cx="170" cy="120" r="3" fill="#00f2fe" />
+  <!-- ==================== LEFT CIRCUITRY & HARDWARE SCHEMATIC ==================== -->
+  <g opacity="0.65">
+    <!-- Main IC Chip Outline -->
+    <rect x="50" y="90" width="75" height="120" rx="8" fill="#060b14" stroke="rgba(0, 245, 255, 0.4)" stroke-width="1.2" />
+    <circle cx="87.5" cy="110" r="4" fill="#00f5ff" opacity="0.6" />
+    <text x="87.5" y="150" fill="#00f5ff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', monospace" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1">ESP32</text>
+    <text x="87.5" y="165" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', monospace" font-size="8" text-anchor="middle">MCU CORE</text>
 
-    <path d="M 40 260 L 40 210 L 90 160 L 160 160 L 190 190 L 250 190" />
-    <circle cx="250" cy="190" r="4" fill="#00f2fe" />
+    <!-- IC Pins (Left & Right) -->
+    <path d="M 38 105 L 50 105 M 38 120 L 50 120 M 38 135 L 50 135 M 38 150 L 50 150 M 38 165 L 50 165 M 38 180 L 50 180 M 38 195 L 50 195" stroke="rgba(0, 245, 255, 0.5)" stroke-width="1.5" />
+    <path d="M 125 105 L 137 105 M 125 120 L 137 120 M 125 135 L 137 135 M 125 150 L 137 150 M 125 165 L 137 165 M 125 180 L 137 180 M 125 195 L 137 195" stroke="rgba(0, 245, 255, 0.5)" stroke-width="1.5" />
 
-    <rect x="30" y="85" width="50" height="50" rx="6" stroke="#00f2fe" stroke-dasharray="4 3" opacity="0.6" />
-    <text x="55" y="114" fill="#00f2fe" font-size="11" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" text-anchor="middle">MCU</text>
+    <!-- Circuit Bus Traces (Routing into the board) -->
+    <g stroke="rgba(0, 245, 255, 0.35)" stroke-width="1.2" fill="none">
+      <path d="M 137 120 L 180 120 L 210 90 L 260 90" />
+      <circle cx="260" cy="90" r="3" fill="#00f5ff" />
+
+      <path d="M 137 150 L 195 150 L 225 180 L 275 180" />
+      <circle cx="275" cy="180" r="3" fill="#00f5ff" />
+
+      <path d="M 137 180 L 170 180 L 195 215 L 240 215" />
+      <circle cx="240" cy="215" r="2.5" fill="rgba(0, 245, 255, 0.6)" />
+
+      <!-- Top decorative trace -->
+      <path d="M 0 45 L 90 45 L 130 85 L 130 90" />
+      <circle cx="90" cy="45" r="2.5" fill="#00f5ff" />
+      
+      <!-- Bottom decorative trace -->
+      <path d="M 0 255 L 70 255 L 110 215 L 110 210" />
+      <circle cx="70" cy="255" r="2.5" fill="#00f5ff" />
+    </g>
   </g>
 
-  <!-- Right Circuit / Code Elements (Web / Front-end) -->
-  <g opacity="0.4" stroke="#f857a6" stroke-width="1.5" fill="none">
-    <path d="M 1000 70 L 910 70 L 870 110 L 780 110" />
-    <circle cx="780" cy="110" r="4" fill="#f857a6" />
+  <!-- ==================== RIGHT DIGITAL WAVEFORM & TELEMETRY ==================== -->
+  <g opacity="0.65">
+    <!-- Telemetry Data Card Outline -->
+    <rect x="875" y="90" width="75" height="120" rx="8" fill="#060b14" stroke="rgba(99, 102, 241, 0.4)" stroke-width="1.2" />
+    <text x="912.5" y="115" fill="#818cf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', monospace" font-size="10" font-weight="700" text-anchor="middle">&lt;DATA&gt;</text>
+    
+    <!-- Code / Pulse graphic inside card -->
+    <path d="M 885 135 L 895 135 L 900 125 L 905 145 L 910 135 L 940 135" stroke="#818cf8" stroke-width="1.5" fill="none" />
+    <path d="M 885 155 L 905 155 M 885 170 L 920 170 M 885 185 L 910 185" stroke="rgba(255, 255, 255, 0.2)" stroke-width="2" stroke-linecap="round" />
 
-    <path d="M 1000 180 L 930 180 L 890 140 L 820 140" />
-    <circle cx="820" cy="140" r="3.5" fill="#f857a6" />
+    <!-- Waveform Traces Routing inward -->
+    <g stroke="rgba(99, 102, 241, 0.35)" stroke-width="1.2" fill="none">
+      <path d="M 875 120 L 830 120 L 800 90 L 740 90" />
+      <circle cx="740" cy="90" r="3" fill="#818cf8" />
 
-    <path d="M 960 260 L 960 220 L 910 170 L 840 170 L 810 200 L 750 200" />
-    <circle cx="750" cy="200" r="4" fill="#f857a6" />
+      <path d="M 875 150 L 815 150 L 785 180 L 725 180" />
+      <circle cx="725" cy="180" r="3" fill="#818cf8" />
 
-    <text x="910" y="115" fill="#f857a6" font-size="28" font-family="Courier, monospace" font-weight="bold" opacity="0.5">&lt;/&gt;</text>
+      <path d="M 875 180 L 840 180 L 815 215 L 760 215" />
+      <circle cx="760" cy="215" r="2.5" fill="rgba(99, 102, 241, 0.6)" />
+
+      <!-- Top decorative trace -->
+      <path d="M 1000 45 L 920 45 L 880 85 L 880 90" />
+      <circle cx="920" cy="45" r="2.5" fill="#818cf8" />
+
+      <!-- Bottom decorative trace -->
+      <path d="M 1000 255 L 930 255 L 890 215 L 890 210" />
+      <circle cx="930" cy="255" r="2.5" fill="#818cf8" />
+    </g>
   </g>
 
-  <!-- Top Center Icons Floating -->
-  <g transform="translate(385, 28)">
-    <!-- ESP32 Pill -->
-    <rect x="0" y="0" width="42" height="26" rx="6" fill="#e7352c" opacity="0.9" />
-    <text x="21" y="17" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10" font-weight="bold" text-anchor="middle">ESP</text>
+  <!-- ==================== CENTER CONTENT ==================== -->
 
-    <!-- Arduino Pill -->
-    <rect x="50" y="0" width="38" height="26" rx="6" fill="#00979d" opacity="0.9" />
-    <text x="69" y="17" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="bold" text-anchor="middle">∞</text>
-
-    <!-- C++ Pill -->
-    <rect x="96" y="0" width="38" height="26" rx="6" fill="#00599c" opacity="0.9" />
-    <text x="115" y="17" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10" font-weight="bold" text-anchor="middle">C++</text>
-
-    <!-- TS Pill -->
-    <rect x="142" y="0" width="38" height="26" rx="6" fill="#3178c6" opacity="0.9" />
-    <text x="161" y="17" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="bold" text-anchor="middle">TS</text>
-
-    <!-- React Pill -->
-    <rect x="188" y="0" width="42" height="26" rx="6" fill="#20232a" stroke="#61dafb" stroke-width="1" />
-    <text x="209" y="17" fill="#61dafb" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10" font-weight="bold" text-anchor="middle">⚛</text>
-  </g>
-
-  <!-- Main Headline -->
-  <text x="500" y="112" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="34" font-weight="800" text-anchor="middle" letter-spacing="0.5">
-    Olá, eu sou Diego Souza 👋
-  </text>
-
-  <!-- Subtitle -->
-  <text x="500" y="148" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="500" text-anchor="middle" letter-spacing="0.3">
-    Desenvolvedor de Sistemas Embarcados, IoT &amp; Front-end
-  </text>
-
-  <!-- Tagline / Location Badge -->
-  <g transform="translate(370, 175)">
-    <rect x="0" y="0" width="260" height="28" rx="14" fill="rgba(255, 255, 255, 0.06)" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1" />
-    <text x="130" y="18" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="500" text-anchor="middle">
-      ⚡ Do Hardware à Tela • 📍 Manaus, Brasil
+  <!-- Top Status Badge -->
+  <g transform="translate(385, 26)">
+    <rect x="0" y="0" width="230" height="24" rx="12" fill="rgba(0, 245, 255, 0.05)" stroke="rgba(0, 245, 255, 0.2)" stroke-width="1" />
+    <circle cx="14" cy="12" r="3.5" fill="#00f5ff" filter="url(#subtleGlow)" />
+    <text x="122" y="16" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', monospace" font-size="10" font-weight="600" text-anchor="middle" letter-spacing="1">
+      HARDWARE &amp; WEB TELEMETRY
     </text>
   </g>
 
-  <!-- Bottom Accent Line -->
-  <rect x="350" y="228" width="300" height="3" rx="1.5" fill="url(#neonCyan)" opacity="0.8" />
+  <!-- Main Name Header (High-contrast, bold, executive) -->
+  <text x="500" y="105" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="38" font-weight="800" text-anchor="middle" letter-spacing="1.5">
+    DIEGO SOUZA
+  </text>
+
+  <!-- Subtitle (Specialization & Domain) -->
+  <text x="500" y="142" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="600" text-anchor="middle" letter-spacing="0.5">
+    Engenharia de Sistemas Embarcados • IoT • Front-end Moderno
+  </text>
+
+  <!-- Stack Pills (Sleek dark containers with glowing borders) -->
+  <g transform="translate(260, 168)">
+    <!-- ESP32 -->
+    <rect x="0" y="0" width="70" height="28" rx="6" fill="#09101c" stroke="rgba(231, 53, 44, 0.5)" stroke-width="1" />
+    <circle cx="14" cy="14" r="3" fill="#e7352c" />
+    <text x="42" y="18" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="700" text-anchor="middle">ESP32</text>
+
+    <!-- Arduino -->
+    <rect x="78" y="0" width="78" height="28" rx="6" fill="#09101c" stroke="rgba(0, 151, 157, 0.5)" stroke-width="1" />
+    <circle cx="92" cy="14" r="3" fill="#00979d" />
+    <text x="123" y="18" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="700" text-anchor="middle">Arduino</text>
+
+    <!-- C/C++ -->
+    <rect x="164" y="0" width="65" height="28" rx="6" fill="#09101c" stroke="rgba(0, 89, 156, 0.5)" stroke-width="1" />
+    <circle cx="178" cy="14" r="3" fill="#00599c" />
+    <text x="203" y="18" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="700" text-anchor="middle">C/C++</text>
+
+    <!-- TypeScript -->
+    <rect x="237" y="0" width="90" height="28" rx="6" fill="#09101c" stroke="rgba(49, 120, 198, 0.5)" stroke-width="1" />
+    <circle cx="251" cy="14" r="3" fill="#3178c6" />
+    <text x="288" y="18" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="700" text-anchor="middle">TypeScript</text>
+
+    <!-- React -->
+    <rect x="335" y="0" width="68" height="28" rx="6" fill="#09101c" stroke="rgba(97, 218, 251, 0.5)" stroke-width="1" />
+    <circle cx="349" cy="14" r="3" fill="#61dafb" />
+    <text x="374" y="18" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="700" text-anchor="middle">React</text>
+
+    <!-- MQTT / IoT -->
+    <rect x="411" y="0" width="68" height="28" rx="6" fill="#09101c" stroke="rgba(102, 0, 102, 0.5)" stroke-width="1" />
+    <circle cx="425" cy="14" r="3" fill="#a855f7" />
+    <text x="450" y="18" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="700" text-anchor="middle">MQTT</text>
+  </g>
+
+  <!-- Bottom Telemetry & Location Footer -->
+  <g transform="translate(290, 222)">
+    <rect x="0" y="0" width="420" height="28" rx="6" fill="rgba(255, 255, 255, 0.02)" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
+    <text x="210" y="18" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', monospace" font-size="11" font-weight="500" text-anchor="middle" letter-spacing="1">
+      ⚡ DO CIRCUITO À NUVEM  •  📍 MANAUS, BR
+    </text>
+  </g>
+
 </svg>
