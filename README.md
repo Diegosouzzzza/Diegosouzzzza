@@ -55,6 +55,6 @@
 ### 📊 Atividade & Estatísticas
 
 <div align="center">
-  <img height="150em" src="https://github-readme-stats.vercel.app/api?username=Diegosouzzzza&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true" alt="Estatísticas Gerais" />
-  <img height="150em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Diegosouzzzza&layout=compact&theme=tokyonight&hide=html,css" alt="Linguagens Mais Utilizadas" />
+  <img height="150em" src="https://github-readme-stats-anuraghazra.vercel.app/api?username=Diegosouzzzza&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true" alt="Estatísticas Gerais" />
+  <img height="150em" src="https://github-readme-stats-anuraghazra.vercel.app/api/top-langs/?username=Diegosouzzzza&layout=compact&theme=tokyonight&hide=html,css" alt="Linguagens Mais Utilizadas" />
 </div>
